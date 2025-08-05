@@ -22,7 +22,9 @@ const Feed = () => {
   };
 
   useEffect(() => {
-    const ctx = document.getElementById('feedChart').getContext('2d');
+    const ctx = document.getElementById('feedChart')?.getContext('2d');
+    if (!ctx) return;
+
     new Chart(ctx, {
       type: 'bar',
       data: {
@@ -33,6 +35,22 @@ const Feed = () => {
           backgroundColor: '#FFFFFF',
         }],
       },
+      options: {
+        responsive: true,
+        plugins: {
+          legend: { display: false },
+        },
+        scales: {
+          x: {
+            ticks: { color: '#fff' },
+            grid: { color: '#333' }
+          },
+          y: {
+            ticks: { color: '#fff' },
+            grid: { color: '#333' }
+          }
+        }
+      }
     });
   }, []);
 
@@ -41,29 +59,37 @@ const Feed = () => {
   );
 
   return (
-    <div className="p-6">
-      <div className="tile p-6 rounded-lg mb-6">
+    <div className="min-h-screen bg-black text-white p-6">
+      <div className="bg-gray-900 p-6 rounded-lg mb-6 shadow-md">
         <h2 className="text-2xl font-bold mb-4">Fit or Not Feed</h2>
+
+        {/* Filter Dropdown */}
         <select
           value={filter}
           onChange={handleFilterChange}
-          className="mb-4 p-2 border border-gray-600 rounded bg-gray-900 w-full max-w-xs text-lg"
+          className="mb-6 p-2 border border-gray-600 rounded bg-black text-white w-full max-w-xs text-lg"
         >
           <option>Show All</option>
           <option>Trendsetter</option>
           <option>Classic</option>
         </select>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+
+        {/* Grid of Closets */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           {filteredClosets.map((closet) => (
-            <div key={closet.id} className="tile p-4 rounded-lg">
-              <img src={closet.images[0]} alt="Outfit" className="w-full h-48 object-cover rounded-lg mb-4" />
+            <div key={closet.id} className="bg-gray-800 p-4 rounded-lg shadow-md">
+              <img
+                src={closet.images[0]}
+                alt="Outfit"
+                className="w-full h-48 object-cover rounded-md mb-4 border border-gray-700"
+              />
               <p className="text-lg font-semibold">{closet.name} ({closet.persona})</p>
-              <p className="text-lg">Points: {closet.points}</p>
+              <p className="text-sm text-gray-300">Points: {closet.points}</p>
               <div className="flex justify-between mt-2">
                 {[1, 2, 3, 4, 5].map((star) => (
                   <button
                     key={star}
-                    className="text-yellow-400 text-xl"
+                    className="text-yellow-400 text-xl hover:scale-110 transition-transform"
                     onClick={() => handleRating(closet.id, star)}
                   >
                     ★
@@ -73,9 +99,11 @@ const Feed = () => {
             </div>
           ))}
         </div>
-        <div className="mt-6">
+
+        {/* Chart */}
+        <div className="mt-8">
           <h3 className="text-xl font-semibold mb-2">Feed Stats</h3>
-          <canvas id="feedChart" className="w-full h-32"></canvas>
+          <canvas id="feedChart" className="w-full h-32 bg-black rounded-md"></canvas>
         </div>
       </div>
     </div>
