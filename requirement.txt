@@ -3,3 +3,9 @@ react-dom
 tailwindcss
 postcss
 autoprefixer
+
+
+npm install react react-dom
+# Optional:
+npm install -D tailwindcss postcss autoprefixer
+npx tailwindcss init -p
