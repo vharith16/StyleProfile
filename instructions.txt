@@ -1,0 +1,22 @@
+==========================
+STYLE PROFILE INSTRUCTIONS
+==========================
+
+✅ Branch: Branch-vittal
+📦 React + Tailwind + JSON Server backend
+
+------------
+SETUP STEPS
+------------
+
+1. Clone repo & navigate to project:
+
+   git clone [your_repo_url]
+   cd style-profile
+
+2. Install frontend dependencies:
+
+   npm install
+
+3. Tailwind is already configured.
+   Check: tailwind
