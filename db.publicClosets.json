@@ -1,0 +1,38 @@
+[
+  {
+    "id": "closet-1",
+    "name": "Downtown Donation Closet",
+    "owner": "Anushka J.",
+    "fullness": 30,
+    "capacity": 100,
+    "tags": ["donations", "winter", "community"],
+    "image": "https://images.unsplash.com/photo-1520975912629-6a44d06bd7b9?w=800&q=60"
+  },
+  {
+    "id": "closet-2",
+    "name": "Vintage Finds Closet",
+    "owner": "Vittal",
+    "fullness": 75,
+    "capacity": 100,
+    "tags": ["vintage", "sale"],
+    "image": "https://images.unsplash.com/photo-1541099649105-f69ad21f3246?w=800&q=60"
+  },
+  {
+    "id": "closet-3",
+    "name": "Student Swap Closet",
+    "owner": "Campus Crew",
+    "fullness": 45,
+    "capacity": 80,
+    "tags": ["students", "swap"],
+    "image": ""
+  },
+  {
+    "id": "closet-4",
+    "name": "Workwear Closet",
+    "owner": "Ambassador Hub",
+    "fullness": 20,
+    "capacity": 100,
+    "tags": ["work", "interview"],
+    "image": ""
+  }
+]
